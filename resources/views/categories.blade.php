@@ -5,8 +5,7 @@
     <tr>
       <th>Company Name</th>
       <th>Description</th>
-      <th>Country</th>
-      <th>Address</th>
+      
     </tr>
     @foreach($categories as $category)
       <tr>
