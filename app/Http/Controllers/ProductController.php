@@ -28,6 +28,8 @@ class ProductController extends Controller
 
     public function create()
     {
+
+      $this->authorize('create',Product::class);
       $companies= Company::all();
       $categories= Category::all();
 
@@ -35,7 +37,7 @@ class ProductController extends Controller
     }
     public function store(StoreProductRequest $request)
     {
-
+      $this->authorize('create',Product::class);
       Product::create([
         'name' =>$request->input('name'),
         'description'=>$request->input('description'),
@@ -49,12 +51,13 @@ class ProductController extends Controller
 
     public function delete(Product $product)
     {
+      $this->authorize('delete',Product::class);
       $product->delete();
       return redirect()->route('products.page')->with('success','Productas Istrintas');
     }
     public function edit(Product $product)
     {
-
+      $this->authorize('update',Product::class);
       $companies= Company::all();
       $categories= Category::all();
 
@@ -63,7 +66,7 @@ class ProductController extends Controller
     }
     public function update(Product $product,StoreProductRequest $update)
     {
-
+      $this->authorize('update',Product::class);
       $product->update([
         'name' =>$update->input('name'),
         'description'=>$update->input('description'),

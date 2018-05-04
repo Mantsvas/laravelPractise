@@ -18,9 +18,11 @@
     <link href="{{asset('css/business-frontpage.css')}}" rel="stylesheet">
 
   </head>
-@include('layout.nav')
 
-  <header class="business-header">
+  <header >
+    <iframe width='100%'  id="euroleague-topbar" src="https://hub.euroleague.net/topbarpublic/euroleague/ZAL"></iframe>
+
+    @include('layout.nav')
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
